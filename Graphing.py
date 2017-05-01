@@ -107,4 +107,4 @@ def graphIt(inFile):
     data = [trace1, trace2]
     fig = go.Figure(data=data, layout=layout)
 
-    offline.plot(fig, filename='Linear-Fit-in-python.html')
+    offline.plot(fig, filename='index.html')
