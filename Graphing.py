@@ -80,16 +80,18 @@ def graphIt(inFile):
     width_range = [data.Date.min() - pd.to_timedelta(6, unit='M'), data.Date.max() + pd.to_timedelta(6, unit='M')]
 
     # annotation to show the R^2 value and slope-intercept form of the line
+    # TODO turn this into a dict within the layout
+    # TODO or add it to the line as text
     annotation = go.Annotation(
-        x=width_range,
-        y=height_range,
+        x=data.Date,
+        y=line,
         text='$R^2 = {},\\Y = {}X + {}$'.format(pow(r_value, 2), slope, intercept),
         showarrow=False,
-        font=go.Font(size=16)
+        font=go.Font(size=200)
     )
 
     layout = go.Layout(
-        title='Linear Fit in Python',
+        title=inFile[:len(inFile)-4],
         plot_bgcolor='rgb(229, 229, 229)',
         xaxis=go.XAxis(zerolinecolor='rgb(255,255,255)',
                        gridcolor='rgb(255,255,255)',
